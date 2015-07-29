@@ -114,6 +114,25 @@
 <script src="{{ '/assets/lib/easy-social-buttons/jquery.easy-social-buttons.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/assets/js/script.js' | prepend: site.baseurl }}"></script>
 
+<script type="text/javascript">
+$(function() {
+    $('.code-name').each(function() {
+        var file = $(this).attr('title');
+        var text = $(this).next().text();
+        var el = $('<a>').css({
+                display: 'block',
+                position: 'relative',
+                top: '1.2em',
+                'margin-top': '-1em',
+        }).text(file);
+        el.attr('href', 'data:application/octet-stream;charset=utf-8,'
+                + encodeURIComponent(text));
+        el.attr('download', file);
+        $(this).prepend(el)
+    });
+});
+</script>
+
 {% if page.id %}
 <script src="{{ '/assets/js/header-link.js' | prepend: site.baseurl }}"></script>
 {% endif %}

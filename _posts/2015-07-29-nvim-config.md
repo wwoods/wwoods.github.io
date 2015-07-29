@@ -17,6 +17,7 @@ Some work really benefits from visual (read: mouse) input, but I have never foun
 
 So, I present my `.nvimrc` file, pieced together using [Vundle](https://github.com/gmarik/Vundle.vim).  Vundle has its own install instructions.  Aside from the filesystem changes, all of the `.nvimrc` changes necessary are reflected in the file below.  For `nvim`, one small change was needed to the instructions for `vim` (reflected in the `.nvimrc` file below); `vundle#begin()` requires an argument to redirect for `nvim`-specific settings: `vundle#begin('~/.nvim/bundle')`.  For everything else, simply copying the below file as `~/.nvimrc`, and running `nvim +PluginInstall +q` will be sufficient to set up the IDE.  It's that easy!
 
+<div class="code-name" title=".nvimrc"></div>
 ```vim
 """"""" Plugin management stuff """""""
 set nocompatible
