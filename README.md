@@ -21,10 +21,13 @@ A simple and customizable theme for Jekyll.
 1. [Fork me](https://github.com/qckanemoto/jekyll-qck-theme/fork)
 2. Modify `_config.yml`
 3. Modify `_sass/base/_variables.scss` if you need to change colors or font sizes
-4. Add new posts into `_posts/` :smiley:
+4. Install jekyll and supporting scripts via:
+
+       gem install github-pages
+
+5. Add new posts into `_posts/` :smiley:
 
 ## Demo
 
-You can see live demo at below:
+This blog, hosted at https://wwoods.github.io, is running this Qck theme for jekyll.
 
-* http://qckanemoto.github.io/jekyll-qck-theme/
