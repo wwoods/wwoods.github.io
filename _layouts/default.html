@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    {% capture title %}{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}{% endcapture %}
+    {% assign latest = (site.posts | sort: 'date' | last) %}
+    {% capture title %}{% if page.title %}{{ page.title }} | {% else %}{{ latest.title }} | {% endif %}{{ site.title }}{% endcapture %}
 
     {% include page-url-resolver.html page=page %}
 
