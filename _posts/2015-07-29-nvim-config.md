@@ -85,7 +85,7 @@ set updatetime=500
 " Disable mouse click to go to position
 set mouse-=a
 " Don't let autocomplete affect usual typing habits
-set autocomplete=menu,noinsert
+set completeopt=menuone,preview,noinsert
 
 
 """"""" Python stuff """""""
@@ -127,5 +127,5 @@ autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
 ```
 
-*Update 2015-09-01 - Added `set completeopt=menu,noinsert` to prevent autocomplete features from affecting normal typing*
+*Update 2015-09-01 - Added `set completeopt=menuone,preview,noinsert` to prevent autocomplete features from affecting normal typing*
 
