@@ -86,6 +86,8 @@ set updatetime=500
 set mouse-=a
 " Don't let autocomplete affect usual typing habits
 set completeopt=menuone,preview,noinsert
+" Let vim-gitgutter do its thing on large files
+let g:gitgutter_max_signs=10000
 
 
 """"""" Python stuff """""""
