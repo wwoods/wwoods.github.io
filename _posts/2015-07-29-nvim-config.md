@@ -2,7 +2,7 @@
 layout: post
 title: Using Neovim (nvim) as an IDE
 tags: neovim nvim vim vim-config
-eye_catch: http://neovim.io/images/logo@2x.png
+eye_catch: /assets/img/logo-neovim.svg
 ---
 
 [Neovim](http://neovim.io) is a pretty cool successor to Vim, focusing on compatibility while adding asynchronous plugin functionality and trying to clean up the code base.  Having been fed up at various times with both Sublime Text (2 and 3) and Atom, and after realizing how much development I do over SSH, it seemed reasonable to check out using `vim` (or `nvim`, in this case) as my IDE.  The advantages essentially boil down to:

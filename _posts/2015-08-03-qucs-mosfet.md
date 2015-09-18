@@ -5,7 +5,7 @@ tags: qucs electronics schematics
 eye_catch: http://qucs.sourceforge.net/images/logos/qucs-banner-2.png
 ---
 
-[Qucs](http://qucs.sourceforge.net) (also hosted on [GitHub](https://github.com/Qucs/qucs)) is a "(Q)uite (u)niversal (c)ircuit (s)imulator" that lets you both layout schematics and simulator the represented circuit.  Best of all, it's completely free.
+[Qucs](http://qucs.sourceforge.net) (also hosted on [GitHub](https://github.com/Qucs/qucs)) is a "(Q)uite (u)niversal (c)ircuit (s)imulator" that lets you both layout schematics and simulate the represented circuit.  Best of all, it's completely free.
 
 I'm not aware of any other tool that matches up with its capabilities.  There are other tools, but they have downfalls as far as I am concerned.  I only spent 5-10 minutes investigating each piece of software; at the end, I decided Qucs was the best fit for my habits.  Your mileage may vary, so here's a quick list of the other tools I looked at:
 

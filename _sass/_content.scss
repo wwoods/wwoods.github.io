@@ -51,6 +51,7 @@
 
     ul, ol {
         padding-left: 1em;
+        margin-left: 1em;
         ul, ol {
             margin: 0;
         }
@@ -84,7 +85,7 @@
     }
 
     ol, ul {
-        list-style-position: inside;
+        list-style-position: outside;
     }
 
     code {
@@ -157,6 +158,10 @@
                         margin-right: 0;
                     }
                 }
+            }
+
+            .eye-catch {
+                max-height: 10em;
             }
         }
         p:last-child {

@@ -9,9 +9,9 @@ tags: qucs electronics schematics mosfet cmos ngspice
 
 <!--more-->
 
-1. CMOS MOSFET parameters, such as those attainable from Arizona State University's wonderful [Predictive Technology Model](http://ptm.asu.edu/) page, are very difficult to input into Qucs.  Specifically, each parameter has to be carefully transcribed into a Qucs MOSFET element from the SPICE file generated through the PTM webpage.  Qucs' input mechanism for these types of parameters (of which there are more than 100) is very slow and painful.
+1.  CMOS MOSFET parameters, such as those attainable from Arizona State University's wonderful [Predictive Technology Model](http://ptm.asu.edu/) page, are very difficult to input into Qucs.  Specifically, each parameter has to be carefully transcribed into a Qucs MOSFET element from the SPICE file generated through the PTM webpage.  Qucs' input mechanism for these types of parameters (of which there are more than 100) is very slow and painful.
 
-2. Qucs' [default MOSFET model](http://qucs.sourceforge.net/tech/node71.html) is based on equations by Harold Shichman and David A. Hodges, and is roughly equivalent to SPICE's MOSFET level 1.  This model, while faster, produces "severe inaccuracies" (quoted from [here](http://web.engr.oregonstate.edu/~moon/ece323/hspice98/files/chapter_16.pdf)) in certain situations, and more importantly for my work does not support the wide variety of parameters provided through ASU's PTM.
+2.  Qucs' [default MOSFET model](http://qucs.sourceforge.net/tech/node71.html) is based on equations by Harold Shichman and David A. Hodges, and is roughly equivalent to SPICE's MOSFET level 1.  This model, while faster, produces "severe inaccuracies" (quoted from [here](http://web.engr.oregonstate.edu/~moon/ece323/hspice98/files/chapter_16.pdf)) in certain situations, and more importantly for my work does not support the wide variety of parameters provided through ASU's PTM.
 
 3. The dominant model downloadable on PTM, in SPICE represented as a level 54 MOSFET, is a BSIM4.0 model.  Qucs supports BSIM4.0 through its support for Verilog-A devices within schematics.  However, the provided Verilog-A model for BSIM4.0, found under "verilog-a devices" -> "bsim4v30..." in Qucs' Components list, also does not seem to expose all of the parameters provided by the PTM webpage.
 
