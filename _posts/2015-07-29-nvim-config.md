@@ -89,6 +89,13 @@ set completeopt=menuone,preview,noinsert
 " Let vim-gitgutter do its thing on large files
 let g:gitgutter_max_signs=10000
 
+" If your terminal's background is white (light theme), uncomment the following
+" to make EasyMotion's cues much easier to read.
+" hi link EasyMotionTarget String
+" hi link EasyMotionShade Comment
+" hi link EasyMotionTarget2First String
+" hi link EasyMotionTarget2Second Statement
+
 
 """"""" Python stuff """""""
 syntax enable
@@ -128,6 +135,8 @@ nnoremap <C-b> :w<cr>:Neomake<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !make<cr>:setlocal buftype=nofile<cr>:setlocal bufhidden=hide<cr>:setlocal noswapfile<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
 ```
+
+*Update 2015-09-22 - For when the terminal has a light background, added commented `hi link` lines to improve EasyMotion visibility*
 
 *Update 2015-09-01 - Added `set completeopt=menuone,preview,noinsert` to prevent autocomplete features from affecting normal typing*
 
