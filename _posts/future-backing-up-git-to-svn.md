@@ -10,9 +10,20 @@ import sys
 import traceback
 
 # The root path that all repos are backed up to in SVN
-SVN_ROOT = "https://example.com/path/to/svn/root"
+SVN_ROOT = "https://example.com/path/to/svn"
 # The directory that houses the mirrors locally.
 TMP = ".svn-mirrors"
+
+try:
+    # Resolve Unix username and group name
+    import grp
+    import pwd
+    def resolveOwnerAndGroup(uid, gid):
+        return (pwd.getpwuid(uid)[0], grp.getgrgid(gid)[0])
+except ImportError:
+    # Fallback support for non-Unix
+    def resolveOwnerAndGroup(uid, gid):
+        return ("(Not-Unix)", "(Not-Unix)")
 
 
 def call(cmd):
@@ -42,6 +53,14 @@ def processRepo(d):
     """
     assert d.endswith('.git')
     print("==== {} ====".format(d))
+
+    # Do we have access?
+    if not os.access(d, os.R_OK):
+        stat = os.stat(d)
+        user, group = resolveOwnerAndGroup(stat.st_uid, stat.st_gid)
+        print("Cannot read!  Owner:group is {}:{}".format(user, group))
+        return
+
     svnName = d[:-4]
     svnUrl = "{}/{}".format(SVN_ROOT, svnName)
     r, o, e = call("svn log -l 1 {}".format(svnUrl))
