@@ -122,6 +122,11 @@ inoremap <expr> ú col('.')>1 ? 'T<Left><C-o>db<Delete>' : '<Backspace>T<Left><c
 " Requires binding option+forward delete to escape
 inoremap ø <C-o>dw
 
+" Linux / windows ctrl+backspace ctrl+delete
+" Note that ctrl+backspace doesn't work in Linux :(
+imap <C-backspace> ú
+imap <C-delete> ø
+
 " Arrow keys up/down move visually up and down rather than by whole lines.  In
 " other words, wrapped lines will take longer to scroll through, but better
 " control in long bodies of text.
@@ -135,6 +140,8 @@ nnoremap <C-b> :w<cr>:Neomake<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !make<cr>:setlocal buftype=nofile<cr>:setlocal bufhidden=hide<cr>:setlocal noswapfile<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
 ```
+
+*Update 2015-10-01 - Non-Mac ctrl+backspace and ctrl+delete work appropriately in insert mode (except Linux, known bug with mapping <C-backspace>.*
 
 *Update 2015-09-22 - For when the terminal has a light background, added commented `hi link` lines to improve EasyMotion visibility*
 
