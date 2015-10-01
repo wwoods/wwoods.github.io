@@ -123,8 +123,9 @@ inoremap <expr> ú col('.')>1 ? 'T<Left><C-o>db<Delete>' : '<Backspace>T<Left><c
 inoremap ø <C-o>dw
 
 " Linux / windows ctrl+backspace ctrl+delete
-" Note that ctrl+backspace doesn't work in Linux :(
+" Note that ctrl+backspace doesn't work in Linux, so ctrl+\ is also available
 imap <C-backspace> ú
+imap <C-\> ú
 imap <C-delete> ø
 
 " Arrow keys up/down move visually up and down rather than by whole lines.  In
@@ -141,7 +142,7 @@ autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
 ```
 
-*Update 2015-10-01 - Non-Mac ctrl+backspace and ctrl+delete work appropriately in insert mode (except Linux, known bug with mapping <C-backspace>.*
+*Update 2015-10-01 - Non-Mac ctrl+backspace and ctrl+delete work appropriately in insert mode (except Linux, known bug with mapping <C-backspace>.  In Linux, use ctrl+\).*
 
 *Update 2015-09-22 - For when the terminal has a light background, added commented `hi link` lines to improve EasyMotion visibility*
 
