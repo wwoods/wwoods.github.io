@@ -19,6 +19,8 @@ This can be fixed through use of a suitable `.screenrc` file, such as the one be
 maptimeout 1
 
 # Use the 256 color terminal
-term xterm-256color
+term screen-256color
 ```
+
+*Update 2015-11-03 - Term should be screen-256color, not xterm-256color.  The latter breaks home and end keys.*
 
