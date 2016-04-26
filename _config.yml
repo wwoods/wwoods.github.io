@@ -91,9 +91,15 @@ gems:
 
 include: ["_pages"]
 
-markdown: redcarpet
-redcarpet:
-  extensions: ["autolink", "fenced_code_blocks", "strikethrough", "superscript", "with_toc_data", "tables", "footnotes", "no_intra_emphasis"]
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
 highlighter: rouge
 
 excerpt_separator: <!--more-->

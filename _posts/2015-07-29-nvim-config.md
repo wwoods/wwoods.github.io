@@ -19,15 +19,16 @@ So, I present my `init.vim` file, pieced together using [Vundle](https://github.
 
 Complete instructions to Neovim as your IDE:
 
-1. Create the paths for neovim config and download Vundle:
+1.  Create the paths for neovim config and download Vundle:
 
     ```bash
     $ mkdir -p ~/.config/nvim/bundle
     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
     ```
 
-2. Install neovim
-    * Linux
+2.  Install neovim
+
+    *   Linux
 
         ```bash
         $ sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -35,7 +36,7 @@ Complete instructions to Neovim as your IDE:
         $ sudo apt-get install neovim
         ```
 
-3. Save the below `init.vim` file as `~/.config/nvim/init.vim`
+3.  Save the below `init.vim` file as `~/.config/nvim/init.vim`
 
 
 <div class="code-name" title="init.vim"></div>
