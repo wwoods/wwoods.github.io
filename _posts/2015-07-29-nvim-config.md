@@ -11,22 +11,43 @@ eye_catch: /assets/img/logo-neovim.svg
 * No need to ever use the mouse while coding (takes longer to learn, but is faster; this is aided by [vim-easymotion](https://github.com/easymotion/vim-easymotion) and [Ctrl-P](https://github.com/kien/ctrlp.vim)),
 * It's been around forever, and frankly, probably always will be.
 
-Some work really benefits from visual (read: mouse) input, but I have never found that to be the case while programming.
+Some work really benefits from visual (mouse) input, but I have never found that to be the case while programming.
 
 <!--more-->
 
-So, I present my `.nvimrc` file, pieced together using [Vundle](https://github.com/gmarik/Vundle.vim).  Vundle has its own install instructions.  Aside from the filesystem changes, all of the `.nvimrc` changes necessary are reflected in the file below.  For `nvim`, one small change was needed to the instructions for `vim` (reflected in the `.nvimrc` file below); `vundle#begin()` requires an argument to redirect for `nvim`-specific settings: `vundle#begin('~/.nvim/bundle')`.  For everything else, simply copying the below file as `~/.nvimrc`, and running `nvim +PluginInstall +q` will be sufficient to set up the IDE.  It's that easy!
+So, I present my `init.vim` file, pieced together using [Vundle](https://github.com/VundleVim/Vundle.vim).  Vundle has its own install instructions.  Aside from the filesystem changes, all of the `.nvimrc` changes necessary are reflected in the file below.  For `nvim`, one small change was needed to the instructions for `vim` (reflected in the `.nvimrc` file below); `vundle#begin()` requires an argument to redirect for `nvim`-specific settings: `vundle#begin('~/.nvim/bundle')`.  For everything else, simply copying the below file as `~/.config/nvim/init.vim`, and running `nvim +PluginInstall +q` will be sufficient to set up the IDE.  It's that easy!
 
-<div class="code-name" title=".nvimrc"></div>
+Complete instructions to Neovim as your IDE:
+
+1. Create the paths for neovim config and download Vundle:
+
+    ```bash
+    $ mkdir -p ~/.config/nvim/bundle
+    $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+    ```
+
+2. Install neovim
+    * Linux
+
+        ```bash
+        $ sudo add-apt-repository ppa:neovim-ppa/unstable
+        $ sudo apt-get update
+        $ sudo apt-get install neovim
+        ```
+
+3. Save the below `init.vim` file as `~/.config/nvim/init.vim`
+
+
+<div class="code-name" title="init.vim"></div>
 ```vim
 """"""" Plugin management stuff """""""
 set nocompatible
 filetype off
 
-set rtp+=~/.nvim/bundle/Vundle.vim
-call vundle#begin('~/.nvim/bundle')
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Custom plugins...
 " EasyMotion - Allows <leader><leader>(b|e) to jump to (b)eginning or (end)
@@ -141,6 +162,8 @@ nnoremap <C-b> :w<cr>:Neomake<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !make<cr>:setlocal buftype=nofile<cr>:setlocal bufhidden=hide<cr>:setlocal noswapfile<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
 ```
+
+*Update 2016-04-26 - Updated paths to reflect neovim's current recommendations (`.nvimrc` became `.config/nvim/init.vim`, moved plugins there as well).*
 
 *Update 2015-10-01 - Non-Mac ctrl+backspace and ctrl+delete work appropriately in insert mode (except Linux, known bug with mapping <C-backspace>.  In Linux, use ctrl+\).*
 
