@@ -79,6 +79,7 @@ ogp:
 # Gems.
 #
 gems:
+  - jekyll-paginate
   - jemoji
 
 #
@@ -114,3 +115,4 @@ exclude:
   - LICENSE
   - README.md
   - vendor
+
