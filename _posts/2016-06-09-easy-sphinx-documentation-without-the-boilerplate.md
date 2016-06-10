@@ -5,7 +5,7 @@ tags: sphinx python documentation
 eye_catch: /assets/img/2016/2016-06-09-sphinx-tease.png
 ---
 
-[Sphinx](http://sphinx-doc.org) is a great documentation tool for Python projects.  The style is exceedingly legible and works well with the inline documentation style that Python exhibits.  It even works great for [putting together slides using reveal.js](https://github.com/tell-k/sphinxjp.themes.revealjs).  Getting Sphinx set up for a Python module with multiple submodules, however, can be a nuisance.  Most of the solutions that can be found on the internet involve creating companion `.rst` files for the project, which violates the convenience of Python's inline documentation framework.  This post demonstrates how to get around that for the most part, minimizing the need amount of Sphinx markup and still producing great documentation.
+[Sphinx](http://sphinx-doc.org) is a great documentation tool for Python projects.  The style is exceedingly legible and works well with the inline documentation style that Python exhibits.  It even works great for [putting together slides using reveal.js](https://github.com/tell-k/sphinxjp.themes.revealjs).  Getting Sphinx set up for a Python module with multiple submodules, however, can be a nuisance.  Most of the solutions that can be found on the internet involve creating companion `.rst` files for the project, which violates the convenience of Python's inline documentation framework.  This post demonstrates how to get around that for the most part, minimizing the needed amount of Sphinx markup and still producing great documentation.
 
 <!--more-->
 
