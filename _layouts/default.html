@@ -118,14 +118,24 @@
 <script type="text/javascript">
 $(function() {
     $('.code-name').each(function() {
-        var file = $(this).attr('title');
+        var title = $(this).attr('title');
+        var file = $(this).attr('file');
+        var type = "<a>";
+        if (!file) {
+            // filename defaults to title
+            file = title;
+        }
+        else if (file == "false") {
+            file = null;
+            type = '<span style="color:#6b5a34;">';
+        }
         var text = $(this).next().text();
-        var el = $('<a>').css({
+        var el = $(type).css({
                 display: 'block',
                 position: 'relative',
                 top: '1.2em',
                 'margin-top': '-1em',
-        }).text(file);
+        }).text(title);
         el.attr('href', 'data:application/octet-stream;charset=utf-8,'
                 + encodeURIComponent(text));
         el.attr('download', file);
