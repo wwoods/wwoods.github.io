@@ -115,7 +115,20 @@
 <script src="{{ '/assets/lib/easy-social-buttons/jquery.easy-social-buttons.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/assets/js/script.js' | prepend: site.baseurl }}"></script>
 
+<style type="text/css">
+    /* Style information for note blocks */
+    p.note {
+        padding: 0.2em;
+        background-color: #ffe1cc;
+
+        border-left: solid 0.2em #f00;
+        border-radius: 0 0.25em 0.25em 0;
+    }
+</style>
+
 <script type="text/javascript">
+//Script helper code for giving code blocks a name and allowing them to be
+//downloaded.
 $(function() {
     $('.code-name').each(function() {
         var title = $(this).attr('title');

@@ -34,7 +34,11 @@ $ sphinx-quickstart
 ...
 
 # documentation root, use os.path.abspath to make it absolute, like shown here.
+- # import os
+- # import sys
 - #sys.path.insert(0, os.path.abspath('.'))
++ import os
++ import sys
 + sys.path.insert(0, os.path.abspath('..'))
 
 ...
@@ -49,6 +53,7 @@ $ sphinx-quickstart
 +         "show-inheritance",
 + ]
 + autosummary_generate = True  # Make _autosummary files and include them
++ napoleon_numpy_docstring = False  # Force consistency, leave only Google
 
 ...
 
@@ -56,9 +61,11 @@ $ sphinx-quickstart
 # ones.
 - extensions = []
 + extensions = [
-+         # Need the autodoc and autosummary packages to automate doc generation
++         # Need the autodoc and autosummary packages to generate our docs.
 +         'sphinx.ext.autodoc',
 +         'sphinx.ext.autosummary',
++         # The Napoleon extension allows for nicer argument formatting.
++         'sphinx.ext.napoleon',
 + ]
 
 ...
@@ -132,15 +139,25 @@ Members
 def add(a, b):
     """Adds ``a`` to ``b``.
 
-    :return: ``a + b``
+    Args:
+        a (any): First argument to add.
+        b (type of a): Second argument to add.
+
+    Returns:
+        type of a: The result of ``a + b``.
     """
     return a + b
 
 ```
+
+{: .note}
+Using [Google style docstrings](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) is recommended to make reading the source files themselves easier.
 
 That's it; running `make html` and opening `/sphinx/_build/html/index.html` will show:
 
 ![Demonstration of docs](/assets/img/2016/2016-06-09-sphinx-ex.png)
 
 If something like a [GitHub Page](https://pages.github.com) is desired for your module, an extra Sphinx makefile target can be added.  That process is detailed on [Nikhil's blog post](http://blog.nikhilism.com/2012/08/automatic-github-pages-generation-from.html).
+
+*Update 2016-07-14: Including [Napoleon with Google-style docstrings](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) in default recommended configuration.*
 
