@@ -54,6 +54,7 @@ $ sphinx-quickstart
 + ]
 + autosummary_generate = True  # Make _autosummary files and include them
 + napoleon_numpy_docstring = False  # Force consistency, leave only Google
++ napoleon_use_rtype = False  # More legible
 
 ...
 
@@ -93,7 +94,12 @@ Note that the blank line in `index.rst` is important.  Sphinx distringuishes bet
 {% raw %}{{ fullname }}
 {{ underline }}{% endraw %}
 
+.. contents::
+
 .. automodule:: {% raw %}{{fullname}}{% endraw %}
+
+    Members
+    =======
 ```
 
 Note that if you ever change `_templates/autosummary/module.rst`, you will need to delete the `_autosummary` directory to regenerate your documentation (it will get re-made with `make html`).
@@ -117,9 +123,6 @@ Submodules
     :toctree: _autosummary
 
     inner
-
-Members
-=======
 """
 
 from .inner import add
@@ -131,9 +134,6 @@ VERSION = "0.0.1"
 <div class="code-name" file="inner.py" title="/mod/inner.py"></div>
 ```python
 """The inner module that implements :meth:`add`.
-
-Members
-=======
 """
 
 def add(a, b):
