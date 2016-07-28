@@ -95,6 +95,7 @@ Note that the blank line in `index.rst` is important.  Sphinx distringuishes bet
 {{ underline }}{% endraw %}
 
 .. contents::
+    :local:
 
 .. automodule:: {% raw %}{{fullname}}{% endraw %}
 
@@ -158,6 +159,8 @@ That's it; running `make html` and opening `/sphinx/_build/html/index.html` will
 ![Demonstration of docs](/assets/img/2016/2016-06-09-sphinx-ex.png)
 
 If something like a [GitHub Page](https://pages.github.com) is desired for your module, an extra Sphinx makefile target can be added.  That process is detailed on [Nikhil's blog post](http://blog.nikhilism.com/2012/08/automatic-github-pages-generation-from.html).
+
+*Update 2016-07-28: Added `:local:` to the `.. contents::` directive in the module template.  Looks nicer.*
 
 *Update 2016-07-14: Including [Napoleon with Google-style docstrings](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) in default recommended configuration.*
 
