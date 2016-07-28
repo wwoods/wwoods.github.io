@@ -85,9 +85,18 @@ Welcome to mod's documentation!
 - .. toctree::
 -     :maxdepth: 2
 + .. automodule:: mod
++
++     Members
++     =======
 ```
 
-Note that the blank line in `index.rst` is important.  Sphinx distringuishes between parameters and content of a directive by the presence of that blank line.  Also, if you have multiple modules, rather than a `.. automodule::` directive, use an `.. autosummary::` directive with a `:toctree: _autosummary` setting.
+In `index.rst`, the "Members" heading helps separate your module's docstring from the auto-generated member documentation.
+
+If you have multiple modules to document or want a cover page that is not your API, then rather than an `.. automodule::` directive, use an `.. autosummary::` directive with a `:toctree: _autosummary` setting (in which case you would not need the "Members" heading lines shown above).
+
+{: .note}
+Note that the blank line in `index.rst` is important.  Sphinx distringuishes between parameters and content of a directive by the presence of that blank line.
+
 
 <div class="code-name" file="module.rst" title="_templates/autosummary/module.rst (a new file; you will need to make the directory)"></div>
 ```rst
@@ -103,7 +112,7 @@ Note that the blank line in `index.rst` is important.  Sphinx distringuishes bet
     =======
 ```
 
-Note that if you ever change `_templates/autosummary/module.rst`, you will need to delete the `_autosummary` directory to regenerate your documentation (it will get re-made with `make html`).
+Again, the "Members" heading helps to separate your module docstrings from autodoc's member documentation.  Note that if you ever change `_templates/autosummary/module.rst`, you will need to delete the `_autosummary` directory to regenerate your documentation (it will get re-made with `make html`).
 
 At this point, running `make html` will document your module.  First, we'll populate the module for this setup.
 
@@ -111,7 +120,7 @@ At this point, running `make html` will document your module.  First, we'll popu
 The Module Itself
 =================
 
-Almost there, we just need something to document.  This method requires two things in each module's docstring: the `autosummary` directive must be used to document submodules, and `Members` must be put as a heading at the end of the docstring.  The `Members` heading is necessary because `autodoc` regrettably doesn't have its own separator between the docstring and any members.
+Almost there, we just need something to document.  This method requires only one thing in each module's docstring: an `autosummary` directive must be used to document submodules.  Otherwise, any submodules will not have their own content pages generated according to our `module.rst` template, and users will not be able to find their documentation.
 
 <div class="code-name" file="__init__.py" title="/mod/__init__.py"></div>
 ```python
@@ -160,7 +169,7 @@ That's it; running `make html` and opening `/sphinx/_build/html/index.html` will
 
 If something like a [GitHub Page](https://pages.github.com) is desired for your module, an extra Sphinx makefile target can be added.  That process is detailed on [Nikhil's blog post](http://blog.nikhilism.com/2012/08/automatic-github-pages-generation-from.html).
 
-*Update 2016-07-28: Added `:local:` to the `.. contents::` directive in the module template.  Looks nicer.*
+*Update 2016-07-28: Added `:local:` to the `.. contents::` directive in the module template.  Looks nicer.  Also updated language to remove references to "Members" heading outside of the template.*
 
 *Update 2016-07-14: Including [Napoleon with Google-style docstrings](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) in default recommended configuration.*
 
