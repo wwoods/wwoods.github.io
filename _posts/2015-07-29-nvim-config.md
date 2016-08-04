@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using Neovim (nvim) as an IDE
-tags: neovim nvim vim vim-config
+tags: neovim nvim vim vim-config devtools
 eye_catch: /assets/img/logo-neovim.svg
 ---
 

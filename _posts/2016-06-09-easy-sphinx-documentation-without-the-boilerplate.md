@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Easy Sphinx Documentation Without the Boilerplate
-tags: sphinx python documentation
+tags: sphinx python documentation devtools
 eye_catch: /assets/img/2016/2016-06-09-sphinx-tease.png
 ---
 
