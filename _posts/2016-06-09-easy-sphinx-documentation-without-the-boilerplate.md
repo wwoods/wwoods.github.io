@@ -22,8 +22,8 @@ Setup
 We'll get to the content of our module in a little bit, but for this method to work, first we need a folder where our Sphinx documentation will reside:
 
 ```
-$ mkdir sphinx
-$ cd sphinx
+$ mkdir docs
+$ cd docs
 $ sphinx-quickstart
 ```
 
@@ -163,11 +163,13 @@ def add(a, b):
 {: .note}
 Using [Google style docstrings](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) is recommended to make reading the source files themselves easier.
 
-That's it; running `make html` and opening `/sphinx/_build/html/index.html` will show:
+That's it; running `make html` and opening `/docs/_build/html/index.html` will show:
 
 ![Demonstration of docs](/assets/img/2016/2016-06-09-sphinx-ex.png)
 
 If something like a [GitHub Page](https://pages.github.com) is desired for your module, an extra Sphinx makefile target can be added.  That process is detailed on [Nikhil's blog post](http://blog.nikhilism.com/2012/08/automatic-github-pages-generation-from.html).
+
+*Update 2016-08-04: Changed directory name from `sphinx` to the more community-accepted `docs`.*
 
 *Update 2016-07-28: Added `:local:` to the `.. contents::` directive in the module template.  Looks nicer.  Also updated language to remove references to "Members" heading outside of the template.*
 
