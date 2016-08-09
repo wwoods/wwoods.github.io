@@ -66,15 +66,20 @@ I'm not going to get into sessions here as I only use a single session and that'
 
 While not strictly part of tmux, one headache that people experience with `tmux` in a long-running session is that SSH will begin prompting for passwords repeatedly.  This happens because the SSH agent connection was broken.  It is often wise when using `tmux` to put the following in your `~/.bash_profile` (or other login shell script if you're not using bash) to alleviate this problem (solution from [this gist](https://gist.github.com/martijnvermaat/8070533#gistcomment-1317075)):
 
-    # Make sure that the ssh agent is running, and that tmux sessions have
-    # access to it through a symlink.
-    if [ -z "$SSH_AUTH_SOCK" ]; then
-        eval `/usr/bin/ssh-agent -s`
-        /usr/bin/ssh-add
+    # Is this an interactive session?
+    if [[ $- == *i* ]]; then
+        # Make sure that the ssh agent is running, so that tmux sessions have
+        # access to it through a symlink.
+        if [ -z "$SSH_AUTH_SOCK" ]; then
+            eval `/usr/bin/ssh-agent -s`
+            /usr/bin/ssh-add
+        fi
+        # Link launched agent where any extant processes can see it
+        if [[ -n "$SSH_TTY" && -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
+            ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+        fi
     fi
-    if [[ -n "$SSH_TTY" && -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
-        ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-    fi
+    # Always use the symlinked version as the auth socket
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
 
@@ -152,6 +157,10 @@ bind C-S-Right resize-pane -R 10
 bind C-S-Up resize-pane -U 10
 bind C-S-Down resize-pane -D 10
 
+# Pane splitting should retain current path (leave windows alone)
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+
 # Enable continuum by default; requires sometimes purging ~/.tmux/resurrect
 set -g @continuum-restore 'on'
 
@@ -178,4 +187,6 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 # Initialize the plugin manager
 run '~/.tmux/plugins/tpm/tpm'
 ```
+
+*Update 2016-8-8 - modified SSH handling to play better with a few other programs by modifying interactive terminals only.  Pane splits preserve working directory.*
 
