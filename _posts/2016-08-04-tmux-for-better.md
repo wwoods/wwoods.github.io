@@ -189,5 +189,6 @@ run '~/.tmux/plugins/tpm/tpm'
 ```
 
 *Update 2017-1-25 - changed default-terminal screen-256color to xterm-256color; screen-256color was not working properly with ctrl+left and ctrl+right in vim.*
+
 *Update 2016-8-8 - modified SSH handling to play better with a few other programs by modifying interactive terminals only.  Pane splits preserve working directory.*
 
