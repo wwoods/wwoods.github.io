@@ -45,13 +45,13 @@ $ sphinx-quickstart
 
 # -- General configuration ------------------------------------------------
 + autoclass_content = "both"  # include both class docstring and __init__
-+ autodoc_default_flags = [
++ autodoc_default_options = {
 +         # Make sure that any autodoc declarations show the right members
-+         "members",
-+         "inherited-members",
-+         "private-members",
-+         "show-inheritance",
-+ ]
++         "members": True,
++         "inherited-members": True,
++         "private-members": True,
++         "show-inheritance": True,
++ }
 + autosummary_generate = True  # Make _autosummary files and include them
 + napoleon_numpy_docstring = False  # Force consistency, leave only Google
 + napoleon_use_rtype = False  # More legible
@@ -168,6 +168,8 @@ That's it; running `make html` and opening `/docs/_build/html/index.html` will s
 ![Demonstration of docs](/assets/img/2016/2016-06-09-sphinx-ex.png)
 
 If something like a [GitHub Page](https://pages.github.com) is desired for your module, an extra Sphinx makefile target can be added.  That process is detailed on [Nikhil's blog post](http://blog.nikhilism.com/2012/08/automatic-github-pages-generation-from.html).
+
+*Update 2021-06-30: Changed `autodoc_default_flags` to `autodoc_default_options` to address deprecated config.*
 
 *Update 2016-08-04: Changed directory name from `sphinx` to the more community-accepted `docs`.*
 
